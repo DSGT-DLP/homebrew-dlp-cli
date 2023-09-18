@@ -5,12 +5,12 @@
 class DlpCli < Formula
   desc ""
   homepage ""
-  version "0.1.2"
+  version "0.1.3"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/DSGT-DLP/dlp-cli/releases/download/v0.1.2/dlp-cli_Darwin_x86_64.tar.gz"
-      sha256 "09ceb25ee4a1412c864a483630aa87331ad44ef45b7967c6eb4abc886c9ad913"
+      url "https://github.com/DSGT-DLP/dlp-cli/releases/download/v0.1.3/dlp-cli_Darwin_x86_64.tar.gz"
+      sha256 "edf35f55f946b34d3d16f88ddafa540a060cab9fd37eb443e2caf9cc98f3e91c"
 
       def install
         bin.install "dlp-cli"
@@ -20,8 +20,8 @@ class DlpCli < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/DSGT-DLP/dlp-cli/releases/download/v0.1.2/dlp-cli_Darwin_arm64.tar.gz"
-      sha256 "8fa69c8792974e3a1fe9969f43ba7d3f3bf751b8ef8d11453d1c725452d2f8f8"
+      url "https://github.com/DSGT-DLP/dlp-cli/releases/download/v0.1.3/dlp-cli_Darwin_arm64.tar.gz"
+      sha256 "ea3b6f15ab2e4aa9509a81796e4290de247ac849c99daf3bc305a3e069ab3ed7"
 
       def install
         bin.install "dlp-cli"
@@ -33,9 +33,9 @@ class DlpCli < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/DSGT-DLP/dlp-cli/releases/download/v0.1.2/dlp-cli_Linux_arm64.tar.gz"
-      sha256 "d6ca70eeecc35cb77e9a69642b72dc1b045d4a63e46c9f11776504012e51cddc"
+    if Hardware::CPU.intel?
+      url "https://github.com/DSGT-DLP/dlp-cli/releases/download/v0.1.3/dlp-cli_Linux_x86_64.tar.gz"
+      sha256 "449012524219cd07447cbbbdbc5c6d9ec501b152ac01e0ae70f5a8989f75e0d3"
 
       def install
         bin.install "dlp-cli"
@@ -44,9 +44,9 @@ class DlpCli < Formula
         fish_completion.install "completions/dlp-cli.fish"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/DSGT-DLP/dlp-cli/releases/download/v0.1.2/dlp-cli_Linux_x86_64.tar.gz"
-      sha256 "3eb19e2e1f044971aed702552c7164250c51a800f470b9e88b5b9ea17e39182d"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/DSGT-DLP/dlp-cli/releases/download/v0.1.3/dlp-cli_Linux_arm64.tar.gz"
+      sha256 "7c4b3001a37441bd24ed69e98ee85570e233c2575ff07ce58799e38dc11a11b4"
 
       def install
         bin.install "dlp-cli"
