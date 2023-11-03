@@ -5,12 +5,12 @@
 class DlpCli < Formula
   desc ""
   homepage ""
-  version "0.2.2"
+  version "0.2.3"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/DSGT-DLP/dlp-cli/releases/download/v0.2.2/dlp-cli_Darwin_arm64.tar.gz"
-      sha256 "595d0eb415d0c70599966b2383f29696a96d81b8628481e84d7edbe908fd5fd0"
+      url "https://github.com/DSGT-DLP/dlp-cli/releases/download/v0.2.3/dlp-cli_Darwin_arm64.tar.gz"
+      sha256 "1f02fff187895e8e47d290401ec6c18988db55a29b4878614f4c02e2d5f1813b"
 
       def install
         bin.install "dlp-cli"
@@ -20,8 +20,8 @@ class DlpCli < Formula
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/DSGT-DLP/dlp-cli/releases/download/v0.2.2/dlp-cli_Darwin_x86_64.tar.gz"
-      sha256 "f352266ad7ffc0b973d714c6b5e820aea646c0a35e1b3516d7f31a6a2f396341"
+      url "https://github.com/DSGT-DLP/dlp-cli/releases/download/v0.2.3/dlp-cli_Darwin_x86_64.tar.gz"
+      sha256 "0696b3e3e09b947e9488ed4651030dde88ff01be655b0428c74b18a973f33a60"
 
       def install
         bin.install "dlp-cli"
@@ -34,8 +34,8 @@ class DlpCli < Formula
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/DSGT-DLP/dlp-cli/releases/download/v0.2.2/dlp-cli_Linux_x86_64.tar.gz"
-      sha256 "33e9f44ec5d4a997d6b69b116085e045a7ca335f5ff9a358b8adea32a232e38e"
+      url "https://github.com/DSGT-DLP/dlp-cli/releases/download/v0.2.3/dlp-cli_Linux_x86_64.tar.gz"
+      sha256 "7bc7179a17e4805a4efabdf85119ff3360f108636baef693a4f983fca949c3d1"
 
       def install
         bin.install "dlp-cli"
@@ -45,8 +45,8 @@ class DlpCli < Formula
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/DSGT-DLP/dlp-cli/releases/download/v0.2.2/dlp-cli_Linux_arm64.tar.gz"
-      sha256 "7260597a07bd0b2a8a82255dc6d4ebd76f0deea044368f35326ac35807ebd02f"
+      url "https://github.com/DSGT-DLP/dlp-cli/releases/download/v0.2.3/dlp-cli_Linux_arm64.tar.gz"
+      sha256 "2d9578609d2452cea6253bf30e1c7af0956f0a651bb306d59616deafe7d064b9"
 
       def install
         bin.install "dlp-cli"
