@@ -5,12 +5,12 @@
 class DlpCli < Formula
   desc ""
   homepage ""
-  version "0.3.1"
+  version "0.3.2"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/DSGT-DLP/dlp-cli/releases/download/v0.3.1/dlp-cli_Darwin_arm64.tar.gz"
-      sha256 "dece13b325cee60eaf8e34859f69eb78c93ec02f24e823f540da86e32f089e14"
+    on_intel do
+      url "https://github.com/DSGT-DLP/dlp-cli/releases/download/v0.3.2/dlp-cli_Darwin_x86_64.tar.gz"
+      sha256 "315f14225eed193cbe04d8129dced164053de6a99cbf88b11bbcec71aeab9e87"
 
       def install
         bin.install "dlp-cli"
@@ -19,9 +19,9 @@ class DlpCli < Formula
         fish_completion.install "completions/dlp-cli.fish"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/DSGT-DLP/dlp-cli/releases/download/v0.3.1/dlp-cli_Darwin_x86_64.tar.gz"
-      sha256 "61d2fa26d49bb920b09a37705bd7775bae4e64635a83d1b406988db3a43337ee"
+    on_arm do
+      url "https://github.com/DSGT-DLP/dlp-cli/releases/download/v0.3.2/dlp-cli_Darwin_arm64.tar.gz"
+      sha256 "e680137ec20a745224910f45774b0ecd174138dd16a3280d7ecf7d839973307f"
 
       def install
         bin.install "dlp-cli"
@@ -33,26 +33,30 @@ class DlpCli < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/DSGT-DLP/dlp-cli/releases/download/v0.3.1/dlp-cli_Linux_x86_64.tar.gz"
-      sha256 "4ebaa94de39943cab10eb72519839123f187c65d3b94e7df3c24a27da5d583c1"
+    on_intel do
+      if Hardware::CPU.is_64_bit?
+        url "https://github.com/DSGT-DLP/dlp-cli/releases/download/v0.3.2/dlp-cli_Linux_x86_64.tar.gz"
+        sha256 "31e93556dfd238aa21495f043d8c246c4c48023175686ffb7ac68762a0bcd178"
 
-      def install
-        bin.install "dlp-cli"
-        bash_completion.install "completions/dlp-cli.bash" => "dlp-cli"
-        zsh_completion.install "completions/dlp-cli.zsh" => "_dlp-cli"
-        fish_completion.install "completions/dlp-cli.fish"
+        def install
+          bin.install "dlp-cli"
+          bash_completion.install "completions/dlp-cli.bash" => "dlp-cli"
+          zsh_completion.install "completions/dlp-cli.zsh" => "_dlp-cli"
+          fish_completion.install "completions/dlp-cli.fish"
+        end
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/DSGT-DLP/dlp-cli/releases/download/v0.3.1/dlp-cli_Linux_arm64.tar.gz"
-      sha256 "5cde9b66afe5e3b50519f3716fe22245085c9fc4965da17a45eb6e34e2757e23"
+    on_arm do
+      if Hardware::CPU.is_64_bit?
+        url "https://github.com/DSGT-DLP/dlp-cli/releases/download/v0.3.2/dlp-cli_Linux_arm64.tar.gz"
+        sha256 "3ebc4abf372ab2a80b446a6000174ba959bb14cc263b00f8000062aabffa9f2f"
 
-      def install
-        bin.install "dlp-cli"
-        bash_completion.install "completions/dlp-cli.bash" => "dlp-cli"
-        zsh_completion.install "completions/dlp-cli.zsh" => "_dlp-cli"
-        fish_completion.install "completions/dlp-cli.fish"
+        def install
+          bin.install "dlp-cli"
+          bash_completion.install "completions/dlp-cli.bash" => "dlp-cli"
+          zsh_completion.install "completions/dlp-cli.zsh" => "_dlp-cli"
+          fish_completion.install "completions/dlp-cli.fish"
+        end
       end
     end
   end
